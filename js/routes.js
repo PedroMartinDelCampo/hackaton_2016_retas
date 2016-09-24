@@ -13,4 +13,5 @@
         .module('sportice')
         .config(config)
 
+
 })();
