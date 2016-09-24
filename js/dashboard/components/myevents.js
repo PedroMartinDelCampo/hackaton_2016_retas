@@ -15,7 +15,22 @@
             $("#miseventos-tab").addClass("active");
             $("#newsfeed-tab").removeClass("active");
 
-            
+            vm.verEvento= verEvento;
+            vm.salirEvento = salirEvento;
+
+            function verEvento(index, title, description, date, time){
+                vm.viewTitle = title;
+                vm.viewDescription = description;
+                vm.viewDate = date;
+                vm.viewTime = time;
+                vm.viewIndex = index;
+                $("#modal-view-event").openModal();
+            }
+
+            function salirEvento(index){
+                firebase.database().ref('/profiles/' + vm.userId + '/events/' + index).remove();
+            }
+
             firebase.auth().onAuthStateChanged(function (user){
                 if (user){
                     vm.userId = firebase.auth().currentUser.uid;

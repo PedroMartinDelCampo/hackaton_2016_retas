@@ -19,6 +19,8 @@
             vm.addMap = addMap;
             vm.showMap = false;
             vm.addEvent = addEvent;
+            vm.clearNotifications= clearNotifications;
+
             
             navigator.geolocation.getCurrentPosition(function(position) {
                 vm.latitude = position.coords.latitude;
@@ -57,6 +59,9 @@
                 }
             });
             
+            function clearNotifications(){
+                firebase.database().ref('/notifications/').remove();
+            }
 
             function addMap(){
                 $("#modal-map").openModal();

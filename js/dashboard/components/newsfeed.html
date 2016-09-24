@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col m4">
-            <p style="text-align: center;" >Notificaciones<span><button id="clear-btn" class="btn">Clear</button></span></p>
+            <p style="text-align: center;" >Notificaciones<span><button ng-click="vm.clearNotifications()" id="clear-btn" class="btn">Clear</button></span></p>
             
             <ul id="notificaciones" class="collection">
                 <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}} </li>
