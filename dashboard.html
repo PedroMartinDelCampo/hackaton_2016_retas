@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Retas Dashboard</title>
+	<link rel="stylesheet" href="css/ghpages-materialize.css" />
+	<link rel="stylesheet" href="./node_modules/materialize-clockpicker/dist/css/materialize.clockpicker.css">
+	<link rel="stylesheet" href="css/prism.css" />
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="sporticedashboard">
+	<ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+		<ul id="notificaciones" class="collection">
+			<li class="collection-item"><b>NOTIFICACION 1</b><br /> Descripcion de notificacion</li>
+			<li class="collection-item"><b>NOTIFICACION 2</b><br /> Descripcion de notificacion</li>
+			<li class="collection-item"><b>NOTIFICACION 3</b><br /> Descripcion de notificacion</li>
+			<li class="collection-item"><b>NOTIFICACION 4</b><br /> Descripcion de notificacion</li>
+		</ul>
+    </div></li>
+	</ul>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo"><img style="width: 40px; height: auto;" src="/assets/images/logo.png">Sportice</a>
+			<ul class="right hide-on-med-and-down">
+			<li><a id="newsfeed-tab" class="active" href="#/newsfeed">Newsfeed</a></li>
+			<li><a id="miseventos-tab" href="#/myevents">Mis Eventos</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="main-content">
+		<div class="row">
+			<div class="col m12" ng-view></div>
+		</div>
+	</div>
+<script src="https://maps.google.com/maps/api/js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
+<script>
+var config = {
+        apiKey: "AIzaSyB-JAJC0gnPewcVeMxAF5DWOOlEmHWTG_A",
+        authDomain: "sportice-42b17.firebaseapp.com",
+        databaseURL: "https://sportice-42b17.firebaseio.com",
+        storageBucket: "sportice-42b17.appspot.com",
+        messagingSenderId: "55873511666"
+}
+
+        firebase.initializeApp(config);
+</script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/angular/angular.js"></script>
+<script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+<script src="./node_modules/angular-route/angular-route.js"></script>
+<script src="./node_modules/angular-materialize/src/angular-materialize.min.js"></script>
+<script src="./node_modules/materialize-clockpicker/dist/js/materialize.clockpicker.js"></script>
+<script src="./node_modules/ngmap/build/scripts/ng-map.min.js"></script>
+<script src="./node_modules/angularfire/dist/angularfire.min.js"></script>
+<script src="js/dashboard/app.js"></script>
+<script src="js/dashboard/services/data.service.js"></script>
+<script src="js/dashboard/components/newsfeed.js"></script>
+<script src="js/dashboard/components/mapa.js"></script>
+<script src="js/dashboard/components/myevents.js"></script>
+<script src="js/dashboard/routes.js"></script>
+
+</body>
+</html>

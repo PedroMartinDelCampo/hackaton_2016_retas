@@ -10,9 +10,14 @@
             .when('/signup',{
                 template:'<sign-up></sign-up>'
             })
+
+            .when('/interesSignup',{
+                template:'<interes-signup></interes-signup>'
+            })
+            
         
             .otherwise({
-                redirectTo:'/login'
+                redirectTo:'/signup'
             });
     }
 

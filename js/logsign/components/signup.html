@@ -1,0 +1,29 @@
+<div id="logsign-card" class="card-panel">
+    <div style="text-align: center;">
+            <img style="width: 50px; height: auto;" src="/assets/images/logo.png">
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a class="active" href="#/signup">Sign up</a></li>
+                        <li class="tab col s3"><a href="#/login">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <form ng-submit="vm.interesSignup()" >
+                        <label for="username">Nombre completo:</label>
+                        <input placeholder="Nombre" type="text" name="name"/>
+                        <label for="username">Nombre de usuario:</label>
+                        <input placeholder="Nombre de usuario" type="text" name="username"/>
+                        <label for="username">Correo electronico:</label>
+                        <input placeholder="Correo electronico" type="text" name="email"/>
+                        <label for="password">Contrasena:</label>
+                        <input placeholder="Contrasena" type="password" name="password"/>
+                        <input type="submit" value="Registrarme" class="btn"></input>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>

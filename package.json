@@ -29,7 +29,12 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-materialize": "^0.2.1",
     "angular-route": "^1.5.8",
-    "materialize-css": "^0.97.7"
+    "angularfire": "^2.0.2",
+    "jquery": "^3.1.1",
+    "materialize-clockpicker": "^1.0.1",
+    "materialize-css": "^0.97.7",
+    "ngmap": "^1.17.7"
   }
 }

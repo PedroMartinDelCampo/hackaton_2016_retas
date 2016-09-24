@@ -2,13 +2,13 @@
     'use strict'
     angular
         .module('sportice')
-        .component('signUp', {
-            controller: signUpCtrl,
+        .component('logIn', {
+            controller: logInCtrl,
             controllerAs: 'vm',
-            templateUrl: '/js/components/signup.html'
+            templateUrl: '/js/logsign/components/login.html'
         })
 
-        function signUpCtrl(){
+        function logInCtrl(){
             var vm = this;
 
             
