@@ -12,11 +12,13 @@
             </div>
             <div class="row">
                 <div class="container">
-                    <label for="username">Nombre de Usuario:</label>
-                    <input placeholder="Nombre de Usuario" type="text" name="username"/>
-                    <label for="password">Contrasena:</label>
-                    <input placeholder="Contrasena" type="text" name="password"/>
-                    <button class="btn">Iniciar Sesion</button>
+                    <form ng-submit="vm.login()">
+                        <label for="username">Nombre de Usuario:</label>
+                        <input ng-model="vm.email" placeholder="Nombre de Usuario" type="text" name="username"/>
+                        <label for="password">Contrasena:</label>
+                        <input ng-model="vm.password" placeholder="Contrasena" type="password" name="password"/>
+                        <input  type="submit" value="Iniciar sesion" class="btn" />
+                    </form>
                 </div>
             </div>
     </div>

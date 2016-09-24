@@ -21,7 +21,12 @@
             vm.joinEvent = joinEvent;
             vm.addEvent = addEvent;
 
-            
+            firebase.auth().signInWithEmailAndPassword(localStorage.getItem('email'), localStorage.getItem('password')).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            });
 
             function addEvent(){
                 dataService.events.push({
@@ -34,7 +39,6 @@
                 });
 
                 Materialize.toast('Se ha creado un nuevo evento!', 3500, 'toastContent');
-
             }
 
             function modalAddEvent (){
