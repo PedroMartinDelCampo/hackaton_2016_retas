@@ -30,6 +30,7 @@
             firebase.auth().onAuthStateChanged(function (user){
                 if (user){
                     vm.userId = firebase.auth().currentUser.uid;
+                    console.log(vm.userId);
                     firebase.database().ref('/events/').on('value', function(snapshot) {
                         vm.eventObj = snapshot.val();
                         var myObj = snapshot.val();
