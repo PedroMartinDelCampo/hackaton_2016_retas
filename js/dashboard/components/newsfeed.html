@@ -5,19 +5,21 @@
 
     <div class="row">
         <div class="col m4">
+            <p>Notificaciones</p>
             <ul id="notificaciones" class="collection">
                 <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}}</li>
             </ul>
         </div>
-        <div class="col m8">
+        <div class="col m8 rightcol">
             <div class="col s12">
-                <ul class="tabs">
+                <ul style="width: 50%;" class="tabs">
                     <li class="tab col s3"><a class="active" href="#/newsfeed">Lista</a></li>
                     <li class="tab col s3"><a href="#/mapa">Mapa</a></li>
                 </ul>
                 <br />
             </div>
-        <div ng-repeat="event in vm.events" class="col m12">
+            <div ng-repeat="event in vm.events" class="row">
+        <div  class="col m12">
             <div style="width: 90%; margin: 0 auto; " class="card darken-1">
             <div ng-click="vm.viewEvent()" class="card-content black-text">
               <span class="card-title">{{event.title}}</span>
@@ -33,7 +35,7 @@
             </div>
           </div>
         </div>
-    
+    </div>
     </div>
 </div>
 

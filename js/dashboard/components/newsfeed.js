@@ -23,9 +23,21 @@
                 if (user){
                     firebase.database().ref('/events/').on('value', function(snapshot) {
                         vm.events = snapshot.val();
+                        var phase = $scope.$root.$$phase;
+                        if(phase == '$apply' || phase == '$digest')
+                            $scope.$eval();
+                        else{
+                            $scope.$apply();
+                        }
                     });
                     firebase.database().ref('/events/').on('value', function(snapshot) {
                         vm.notifications = snapshot.val();
+                        var phase = $scope.$root.$$phase;
+                        if(phase == '$apply' || phase == '$digest')
+                            $scope.$eval();
+                        else{
+                        $scope.$apply();
+                        }
                     });
                 }
             })

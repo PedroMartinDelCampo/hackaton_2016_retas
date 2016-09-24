@@ -83,6 +83,13 @@ nav{
     font-weight: bold;
 }
 
+.rightcol{
+    border-left: 1px solid;
+    border-color: rgba(21,101,192, 0.15);
+}
+
+
+
 #notificaciones li {
     padding: 20px;
 }
