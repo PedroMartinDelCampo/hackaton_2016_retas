@@ -29,9 +29,11 @@
             
             firebase.auth().onAuthStateChanged(function (user){
                 if (user){
+                    vm.userId = firebase.auth().currentUser.uid;
                     firebase.database().ref('/events/').on('value', function(snapshot) {
+                        vm.eventObj = snapshot.val();
                         var myObj = snapshot.val();
-
+                        vm.keys = Object.keys(vm.eventObj)
                         vm.events = $.map(myObj, function(value, index) {
                             return [value];
                         });
@@ -87,17 +89,20 @@
                 $("#modal-add-event").openModal();
             }
 
-            function viewEvent (){
+            function viewEvent (index){
                 $("#modal-view-event").openModal();
             }
 
-            function joinEvent (title) {
+            function joinEvent (index, title) {
+                var event = index;
+                var database = firebase.database();
+                var eventsRef = database.ref('profiles/' + vm.userId + '/events');
+                eventsRef.push({events: event});
                 dataService.addNotification({
                     "message": "Te has unido a ",
                     "title": title,
                     "description": "testDesc"
                 });
-            
                 Materialize.toast('Se ha agregado este evento a tu lista!', 3500, 'toastContent');
             }
 

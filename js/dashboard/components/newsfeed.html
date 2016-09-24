@@ -19,19 +19,19 @@
                 <br />
             </div>
             <div ng-repeat="event in vm.events | filter: searchText " class="row">
-        <div  class="col m12">
+        <div class="col m12">
             <div style="width: 90%; margin: 0 auto; " class="card darken-1">
-            <div ng-click="vm.viewEvent()" class="card-content black-text">
+            <div ng-click="vm.viewEvent(vm.keys[$index])" class="card-content black-text">
               <span class="card-title">{{event.title}}</span>
               <p>{{event.description}}</p>
               <p>{{event.date}}</p>
               <p>{{event.time}}</p>
-              <br />
+              <br/>
               <b>{{event.tags}}</b>
             
             </div>
             <div style="text-align: right;" class="card-action">
-              <a ng-click="vm.joinEvent(event.title)" >Unirme a evento</a>
+              <a ng-click="vm.joinEvent(vm.keys[$index], event.title)" >Unirme a evento</a>
             </div>
           </div>
         </div>

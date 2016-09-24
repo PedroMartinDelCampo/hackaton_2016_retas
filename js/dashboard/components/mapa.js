@@ -23,7 +23,7 @@
 
 
 
-firebase.database().ref('/notifications/').on('value', function(snapshot) {
+            firebase.database().ref('/notifications/').on('value', function(snapshot) {
                         vm.notifications = snapshot.val();
                         var phase = $scope.$root.$$phase;
                         if(phase == '$apply' || phase == '$digest')
