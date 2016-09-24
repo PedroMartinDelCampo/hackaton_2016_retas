@@ -8,15 +8,15 @@
 
     function dataService (){
         var svc = this;
-        // Initialize Firebase
-        
-
-        firebase.database().ref('/events/').on('value', function(snapshot) {
-            console.log(snapshot.val());
+ 
+        firebase.auth().signInWithEmailAndPassword(localStorage.getItem('email'), localStorage.getItem('password')).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
         });
-    
 
         svc.notifications = [];
-        svc.events = [];
+        
     }
 })();

@@ -8,25 +8,30 @@
             templateUrl: '/js/dashboard/components/newsfeed.html'
         })
 
-        function newsfeedCtrl(dataService, $firebaseObject, $firebaseAuth){
+        function newsfeedCtrl($scope, dataService, $firebaseObject, $firebaseAuth, $rootScope){
             var vm = this;
 
             vm.notifications = dataService.notifications;
-            vm.events = dataService.events;
-
             $("#miseventos-tab").removeClass("active");
             $("#newsfeed-tab").addClass("active");
             vm.modalAddEvent = modalAddEvent;
             vm.viewEvent = viewEvent;
             vm.joinEvent = joinEvent;
             vm.addEvent = addEvent;
+            
+            
+            firebase.auth().onAuthStateChanged(function (user){
+                if (user){
+                    firebase.database().ref('/events/').on('value', function(snapshot) {
+                        vm.events = snapshot.val();
+                        $scope.$apply();
+                    });
+                }
+            })
+            
 
-            firebase.auth().signInWithEmailAndPassword(localStorage.getItem('email'), localStorage.getItem('password')).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ...
-            });
+
+
 
             function addEvent(){
                 dataService.events.push({

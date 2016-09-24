@@ -9,7 +9,6 @@
                 <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}}</li>
             </ul>
         </div>
-
         <div class="col m8">
             <div class="col s12">
                 <ul class="tabs">
@@ -18,7 +17,7 @@
                 </ul>
                 <br />
             </div>
-        <div ng-repeat="event in vm.events | filter: searchText" class="col m12">
+        <div ng-repeat="event in vm.events" class="col m12">
             <div style="width: 90%; margin: 0 auto; " class="card darken-1">
             <div ng-click="vm.viewEvent()" class="card-content black-text">
               <span class="card-title">{{event.title}}</span>
