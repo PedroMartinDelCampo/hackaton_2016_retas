@@ -7,7 +7,7 @@
         <div class="col m4">
             <p>Notificaciones</p>
             <ul id="notificaciones" class="collection">
-                <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}}</li>
+                <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}} </li>
             </ul>
         </div>
         <div class="col m8 rightcol">
@@ -18,7 +18,7 @@
                 </ul>
                 <br />
             </div>
-            <div ng-repeat="event in vm.events" class="row">
+            <div ng-repeat="event in vm.events | filter: searchText " class="row">
         <div  class="col m12">
             <div style="width: 90%; margin: 0 auto; " class="card darken-1">
             <div ng-click="vm.viewEvent()" class="card-content black-text">
@@ -54,6 +54,18 @@
     </div>
 </div>
 
+<div id="modal-map" class="modal">
+    <div style="text-align:center;" class="modal-content text-center">
+        <div class="container">
+            <ng-map ng-if="vm.showMap" id="mapModal" center="{{vm.latitude}}, {{vm.longitude}}">
+                <marker visible="true" on-mouseup="vm.markerMove()" draggable="true" position="{{vm.latitude}}, {{vm.longitude}}"></marker>
+            </ng-map>
+            <button ng-click="vm.saveLocation()" class="btn modal-action modal-close">Guardar ubicacion</button>
+        </div>
+    </div>
+</div>
+
+
 <div id="modal-add-event" class="modal">
     <div style="text-align:center;" class="modal-content text-center">
         <div class="container">
@@ -80,8 +92,10 @@
             format="dd/mm/yyyy" />
             <label for="hora">Hora de evento:</label>
             <input id="hora" ng-model="vm.hora" input-clock data-twelvehour="false" type="text">
+            <button ng-click="vm.addMap()" style="border-radius: 70px;" class="btn" ><i class="material-icons">my_location</i></button>
             <input ng-model="vm.tags" placeholder="Tags (#) del evento..." />
-            <input ng-click="vm.addEvent()" type="submit" class="btn btn-submit modal-action modal-close" value="Crear"/>
+            <input ng-click="vm.addEvent()" id="crear-evento" type="submit" class="btn  btn-submit modal-action modal-close" value="Crear"/>
+            
         </div>
     </div>
 </div>

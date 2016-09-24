@@ -8,17 +8,40 @@
             templateUrl: '/js/dashboard/components/mapa.html'
         })
 
-        function mapaCtrl(dataService){
+        function mapaCtrl($scope, dataService){
             var vm = this;
 
-            vm.notifications = dataService.notifications;
-            vm.events = dataService.events;
+            firebase.database().ref('/events/').on('value', function(snapshot) {
+                        vm.events = snapshot.val();
+                        var phase = $scope.$root.$$phase;
+                        if(phase == '$apply' || phase == '$digest')
+                            $scope.$eval();
+                        else{
+                            $scope.$apply();
+                        }
+                    });
+
+
+
+firebase.database().ref('/notifications/').on('value', function(snapshot) {
+                        vm.notifications = snapshot.val();
+                        var phase = $scope.$root.$$phase;
+                        if(phase == '$apply' || phase == '$digest')
+                            $scope.$eval();
+                        else{
+                        $scope.$apply();
+                        }
+                    });
 
             $("#miseventos-tab").removeClass("active");
             $("#newsfeed-tab").addClass("active");
             vm.modalAddEvent = modalAddEvent;
             vm.viewEvent = viewEvent;
             vm.addEvent = addEvent;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                vm.latitude = position.coords.latitude;
+                vm.longitude = position.coords.longitude;
+            });
 
             function addEvent(){
                 dataService.events.push({

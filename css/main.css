@@ -18,12 +18,20 @@
     background: none;
     
 }
+
+#mapModal{
+    margin-bottom: 20px;
+}
 .btn{
-    background-color: #42a5f5 ;
+    background-color: #42a5f5!important;
 }
 
 .btn:hover{
     background-color: #1e88e5;
+}
+
+#crear-evento{
+    background-color: red!important;
 }
 
 .tabs a{
@@ -56,6 +64,7 @@ nav{
 }
 
 #modal-add-event {
+    margin-top: -45px!important;
     width: 500px;
     max-height: 100%!important;
 }
@@ -140,3 +149,4 @@ nav ul li a:hover{
     padding-left: 50px;
     color: black;
 }
+

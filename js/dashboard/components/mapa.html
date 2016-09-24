@@ -10,18 +10,15 @@
                 <li ng-repeat="notification in vm.notifications" class="collection-item"><b>{{notification.title}}</b><br />{{notification.message}}{{notification.title}}</li>
             </ul>
         </div>
-
-
-
-        <div  class="col m8 rightcol">
+        <div class="col m8 rightcol">
             <div class="col s12">
                 <ul style="width: 50%;"  class="tabs">
                     <li class="tab col s3"><a  href="#/newsfeed">Lista</a></li>
                     <li class="tab col s3"><a class="active" href="#/mapa">Mapa</a></li>
                 </ul>
                 <br />
-                <ng-map style="height: 60vh; width: 100%;" center="120, 130">
-                <marker visible="true" on-mouseup="vm.markerMove()" draggable="true" position="120,130"></marker>
+                <ng-map style="height: 60vh; width: 100%;" center="{{vm.latitude}}, {{vm.longitude}}">
+                <marker ng-repeat="event in vm.events" visible="true" position="{{event.latitude}}, {{event.longitude}}"></marker>
                 </ng-map>
             </div>
             
