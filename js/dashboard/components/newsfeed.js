@@ -89,7 +89,12 @@
                 $("#modal-add-event").openModal();
             }
 
-            function viewEvent (index){
+            function viewEvent (index, title, description, date, time){
+                vm.viewTitle = title;
+                vm.viewDescription = description;
+                vm.viewDate = date;
+                vm.viewTime = time;
+                vm.viewIndex = index;
                 $("#modal-view-event").openModal();
             }
 

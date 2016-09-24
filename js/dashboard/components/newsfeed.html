@@ -21,7 +21,7 @@
             <div ng-repeat="event in vm.events | filter: searchText " class="row">
         <div class="col m12">
             <div style="width: 90%; margin: 0 auto; " class="card darken-1">
-            <div ng-click="vm.viewEvent(vm.keys[$index])" class="card-content black-text">
+            <div ng-click="vm.viewEvent(vm.keys[$index], event.title, event.description, event.date, event.time)" class="card-content black-text">
               <span class="card-title">{{event.title}}</span>
               <p>{{event.description}}</p>
               <p>{{event.date}}</p>
@@ -43,13 +43,13 @@
 <div id="modal-view-event" class="modal">
     <div style="text-align:center;" class="modal-content text-center">
         <div class="container">
-            <h5>Nombre de evento</h5>
-            <p>Descripcion de evento</p>
+            <h5>{{vm.viewTitle}}</h5>
+            <p>{{vm.viewDescription}}</p>
             <label for="fecha">Fecha de evento:</label>
-            <input disabled type="text" value="12/12/2016">
+            <input disabled type="text" value="{{vm.viewDate}}">
             <label for="hora">Hora de evento:</label>
-            <input disabled type="text" value="12:30">
-            <input type="submit" class="btn btn-submit" value="Join"/>
+            <input disabled type="text" value="{{vm.viewTime}}">
+            <input ng-click="vm.joinEvent(vm.viewIndex, vm.viewTitle)" type="submit" class="btn btn-submit modal-action modal-close" value="Join"/>
         </div>
     </div>
 </div>
