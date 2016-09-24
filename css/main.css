@@ -1,11 +1,44 @@
 body {
-    background-image: url('/assets/images/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('/assets/images/bg.jpg') no-repeat cover;
+    color: #42a5f5
 }
 
-#signupContainer {
-    margin: 5% auto;
-    width: 40%;
+#main-heading{
+    color: #0d47a1;
     text-align: center;
+}
+
+
+
+
+#logsign-card{
+    padding: 20 40px;
+    margin: 0 auto;
+    text-align: center;
+    width: 500px;
+    background-color: rgba(255,255,255, 0.80);
+}
+
+.main-content{
+    margin-top: 8%;
+}
+
+.tabs{
+    background: none;
+    
+}
+.btn{
+    background-color: #42a5f5 ;
+}
+
+.btn:hover{
+    background-color: #1e88e5;
+}
+
+.tabs a{
+    color: black!important;
+}
+
+.tabs .tab .active{
+    border-bottom: solid 3px #42a5f5 ;
 }
