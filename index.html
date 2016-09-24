@@ -6,32 +6,12 @@
 	<link rel="stylesheet" href="css/prism.css" />
 	<link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-app>
-	
+<body ng-app="sportize">
 	<div class="main-content">
-		
 		<div class="row">
-			<div class="container">
-				<div class="col m12">		
-					<div id="logsign-card" class="card-panel">
-						<div class="row">
-							<div class="col s12">
-								<ul class="tabs">
-									<li class="tab col s3"><a class="active" href="#">Log In</a></li>
-									<li class="tab col s3"><a href="#">Sign up</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="container">
-								<label for="username">Nombre de Usuario:</label>
-								<input placeholder="Nombre de Usuario" type="text" name="username"/>
-								<label for="password">Contrasena:</label>
-								<input placeholder="Contrasena" type="text" name="password"/>
-								<button class="btn">Iniciar Sesion</button>
-							</div>
-						</div>
-					
+			<div class="container">	
+				<div class="col m12">
+					<div ng-view>
 				</div>
 			</div>
 		</div>
@@ -40,5 +20,7 @@
 
 <script src="./node_modules/angular/angular.js"></script>
 <script src="./node_modules/materialize-css/js/materialize.js"></script>
+<script src="/src/app.js"></script>
+<script src="/src/components/login.js"></script>
 </body>
 </html>

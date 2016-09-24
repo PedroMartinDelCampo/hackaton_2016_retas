@@ -1,14 +1,8 @@
-body {
-    background: url('/assets/images/bg.jpg') no-repeat cover;
-    color: #42a5f5
-}
 
 #main-heading{
     color: #0d47a1;
     text-align: center;
 }
-
-
 
 
 #logsign-card{
@@ -20,7 +14,7 @@ body {
 }
 
 .main-content{
-    margin-top: 8%;
+    margin-top: 4%;
 }
 
 .tabs{
