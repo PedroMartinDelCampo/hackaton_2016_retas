@@ -11,7 +11,6 @@
         function newsfeedCtrl($scope, dataService, $firebaseObject, $firebaseAuth, $rootScope){
             var vm = this;
 
-            vm.notifications = dataService.notifications;
             $("#miseventos-tab").removeClass("active");
             $("#newsfeed-tab").addClass("active");
             vm.modalAddEvent = modalAddEvent;
@@ -24,17 +23,15 @@
                 if (user){
                     firebase.database().ref('/events/').on('value', function(snapshot) {
                         vm.events = snapshot.val();
-                        $scope.$apply();
+                    });
+                    firebase.database().ref('/events/').on('value', function(snapshot) {
+                        vm.notifications = snapshot.val();
                     });
                 }
             })
             
-
-
-
-
             function addEvent(){
-                dataService.events.push({
+                dataService.addEvent({
                     "title": vm.eventname,
                     "description": vm.eventdescription,
                     "category": vm.eventcategory,
@@ -42,7 +39,6 @@
                     "time": vm.hora,
                     "tags": vm.tags
                 });
-
                 Materialize.toast('Se ha creado un nuevo evento!', 3500, 'toastContent');
             }
 
@@ -55,7 +51,7 @@
             }
 
             function joinEvent (title) {
-                dataService.notifications.push({
+                dataService.addNotification({
                     "message": "Te has unido a ",
                     "title": title,
                     "description": "testDesc"

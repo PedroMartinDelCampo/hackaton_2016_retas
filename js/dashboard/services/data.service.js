@@ -6,7 +6,7 @@
         .module('sporticedashboard')
         .service('dataService', dataService)
 
-    function dataService (){
+    function dataService(){
         var svc = this;
  
         firebase.auth().signInWithEmailAndPassword(localStorage.getItem('email'), localStorage.getItem('password')).catch(function(error) {
@@ -16,7 +16,19 @@
             // ...
         });
 
-        svc.notifications = [];
+        svc.addEvent = function(event) {
+            firebase.database().ref('/events/').push(event);
+        };
+
+        svc.addNotification = function(notification) {
+            firebase.database().ref('/notifications/').push(notification);
+        };
         
+        svc.events = function(then) {
+            firebase.database().ref('/events/').on('value', function(snapshot) {
+                then(snapshot);
+            });
+        }
+
     }
 })();
