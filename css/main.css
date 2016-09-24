@@ -149,3 +149,13 @@ nav ul li a:hover{
     padding-left: 50px;
     color: black;
 }
+
+
+#clear-btn{
+    float: right;
+    width: 100px;
+    padding: 0;
+    margin-right: 20px;
+    border-radius: 65px;
+    margin-top: -6px;
+}
