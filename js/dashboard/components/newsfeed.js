@@ -8,7 +8,7 @@
             templateUrl: '/js/dashboard/components/newsfeed.html'
         })
 
-        function newsfeedCtrl($scope, dataService, $firebaseObject, $firebaseAuth, $rootScope, NgMap){
+        function newsfeedCtrl($scope, dataService, $location, $firebaseObject, $firebaseAuth, $rootScope, NgMap){
             var vm = this;
 
             $("#miseventos-tab").removeClass("active");
@@ -19,6 +19,7 @@
             vm.addMap = addMap;
             vm.showMap = false;
             vm.addEvent = addEvent;
+            vm.modalAddTorneo = modalAddTorneo;
             vm.clearNotifications= clearNotifications;
 
             
@@ -32,7 +33,7 @@
             firebase.auth().onAuthStateChanged(function (user){
                 if (user){
                     vm.userId = firebase.auth().currentUser.uid;
-                    console.log(vm.userId);
+                    $rootScope.username = firebase.auth().currentUser.email;
                     firebase.database().ref('/events/').on('value', function(snapshot) {
                         vm.eventObj = snapshot.val();
                         var myObj = snapshot.val();
@@ -94,14 +95,26 @@
             function modalAddEvent (){
                 $("#modal-add-event").openModal();
             }
+            function modalAddTorneo (){
+                $("#modal-add-tournament").openModal();
+            }
 
-            function viewEvent (index, title, description, date, time){
+            function viewEvent (index, title, description, date, time, tags){
+                
                 vm.viewTitle = title;
+                vm.viewTags = tags;
+
                 vm.viewDescription = description;
                 vm.viewDate = date;
                 vm.viewTime = time;
                 vm.viewIndex = index;
-                $("#modal-view-event").openModal();
+                
+                if (vm.viewTags == ('#reta')){
+                    $location.path('#joinreta');
+                } else{
+                    $("#modal-view-event").openModal();
+                }
+                
             }
 
             function joinEvent (index, title) {

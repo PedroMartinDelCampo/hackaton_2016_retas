@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col m12">
+        <div class="col m6">
+            <div id="torneoForm" class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Reta nombre</h5>
+                        <input disabled ng-model="vm.tournamentname" placeholder="Nombre de torneo..." />
+                        <input disabled ng-model="vm.tournamentdescription" placeholder="Descripcion de torneo..." />
+                        <div input-field>
+                        <select disabled class="" ng-model="vm.tournamentcategory" material-select watch>
+                            <option selected disabled value="">Elige una categoria</option>
+                            <option>Futbol Americano</option>
+                            <option>Futbol Soccer</option>
+                            <option>Basketball</option>
+                        </select>
+                        </div>
+                        <label for="fecha">Fecha de evento:</label>
+                        <input disabled input-date
+                        type="text"
+                        name="created"
+                        id="fecha"
+                        ng-model="vm.fecha"
+                        container="body"
+                        format="dd/mm/yyyy" />
+                        <label for="hora">Hora de evento:</label>
+                        <input disabled id="hora" ng-model="vm.hora" input-clock data-twelvehour="false" type="text">
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="row">
+        <div class="col m6">
+            <div class="card">
+            <div id="equiposForm" class="container">
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 style="text-align: center;">Equipo 1</h4>
+                            <ul class="collection with-header">
+                                <li ng-repeat="players in vm.teamOne" class="collection-item">{{players.name}}</li>
+                            </ul>
+                        </div>
+                        
+                    <button id="teamone" ng-click="vm.joinTeam(1)" style="width: 100%;" class="btn">Unirse a equipo</button>
+                    </div>
+                </div>
+
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 style="text-align: center;">Equipo 2</h4>
+                            <ul class="collection with-header">
+                                
+                                <li ng-repeat="players in vm.teamTwo" class="collection-item">{{players.name}}</li>
+                            </ul>
+                        </div>
+                        
+            <button id="teamtwo" ng-click="vm.joinTeam(2)" style="width: 100% " class="btn">Unirse a equipo</button>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+             <input style="width: 100%; text-align: center; margin-top: 40px;" ng-click="vm.addEvent()" id="crear-evento" type="submit" class="btn  btn-submit modal-action modal-close" value="Guardar"/>
+        </div>
+       
+    </div>
+    
+    </div>
+    
+</div>
+
+
+
+<!--Modal add team-->
+
+<!--<div id="modal-add-team" class="modal">
+    <div style="text-align:center;" class="modal-content text-center">
+        <div class="container">
+            <h5 style="margin-bottom: 30px;">Agregar a equipo</h5>
+            <div input-field>
+            <select style="margin-top: 10%;" value="" ng-model="vm.playername" material-select>
+                <option disabled selected value="">Elige un usuario para agregar al equipo</option>
+                <option value="Usuario 1">Usuario 1</option>
+                <option value="Usuario 2">Usuario 2</option>
+                <option value="Usuario 3">Usuario 3</option>
+                <option value="Usuario 4">Usuario 4</option>
+                <option value="Usuario 5">Usuario 5</option>
+                <option value="Usuario 6">Usuario 6</option>
+                <option value="Usuario 7">Usuario 7</option>
+                <option value="Usuario 8">Usuario 8</option>
+            </select>
+            
+            </div>
+            <button style="margin-top: 20px;" ng-click="vm.addToTeam(vm.playername)" class="btn">Agregar a equipo</button>
+            
+        </div>
+    </div>
+</div>-->

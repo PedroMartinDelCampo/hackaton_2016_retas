@@ -8,7 +8,7 @@
             templateUrl: '/js/dashboard/components/myevents.html'
         })
 
-        function myEventsCtrl($scope){
+        function myEventsCtrl($scope, $rootScope){
             var vm = this;
             vm.events = [];
             vm.ranLoad = false;
@@ -34,6 +34,7 @@
             firebase.auth().onAuthStateChanged(function (user){
                 if (user){
                     vm.userId = firebase.auth().currentUser.uid;
+                    $rootScope.username = firebase.auth().currentUser.email;
                     firebase.database().ref('/profiles/' + vm.userId + '/events').on('value', function(snapshot) {
                         vm.eventObj = snapshot.val();
                         var myObj = snapshot.val();

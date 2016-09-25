@@ -9,23 +9,15 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-controller="InitController">
-	<ul id="slide-out" class="side-nav">
-    <li><div class="userView">
-		<ul id="notificaciones" class="collection">
-			<li class="collection-item"><b>NOTIFICACION 1</b><br /> Descripcion de notificacion</li>
-			<li class="collection-item"><b>NOTIFICACION 2</b><br /> Descripcion de notificacion</li>
-			<li class="collection-item"><b>NOTIFICACION 3</b><br /> Descripcion de notificacion</li>
-			<li class="collection-item"><b>NOTIFICACION 4</b><br /> Descripcion de notificacion</li>
-		</ul>
-    </div></li>
-	</ul>
 	<nav>
 		<div class="nav-wrapper">
 			<a href="#" class="brand-logo"><img style="width: 40px; height: auto;" src="/assets/images/logo.png">Sportice</a>
 			<ul class="right hide-on-med-and-down">
-			<li><a id="newsfeed-tab" class="active" href="#/newsfeed">Newsfeed</a></li>
+			<li><a id="newsfeed-tab" class="active" href="#/newsfeed">Inicio</a></li>
 			<li><a id="miseventos-tab" href="#/myevents">Mis Eventos</a></li>
+			<span style="color: black; float:right; margin-left: 40px; margin-right: 20px;">Bienvenido, {{$root.username}}</span>
 			</ul>
+			
 		</div>
 	</nav>
 	<div class="main-content">
@@ -43,7 +35,7 @@ var config = {
         databaseURL: "https://sportice-42b17.firebaseio.com",
         storageBucket: "sportice-42b17.appspot.com",
         messagingSenderId: "55873511666"
-}
+	}
 
         firebase.initializeApp(config);
 </script>
@@ -60,6 +52,8 @@ var config = {
 <script src="js/dashboard/components/newsfeed.js"></script>
 <script src="js/dashboard/components/mapa.js"></script>
 <script src="js/dashboard/components/myevents.js"></script>
+<script src="js/dashboard/components/joinreta.js"></script>
+<script src="js/dashboard/components/createreta.js"></script>
 <script src="js/dashboard/routes.js"></script>
 
 </body>

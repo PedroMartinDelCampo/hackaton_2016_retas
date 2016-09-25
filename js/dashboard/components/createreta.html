@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col m12">
+            <div id="createRetaForm" class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Reta nombre</h5>
+                        <input ng-model="vm.tournamentname" placeholder="Nombre de reta..." />
+                        <input ng-model="vm.tournamentdescription" placeholder="Descripcion de reta..." />
+                        <div input-field>
+                        <select class="" ng-model="vm.tournamentcategory" material-select watch>
+                            <option selected disabled value="">Elige una categoria</option>
+                            <option>Futbol Americano</option>
+                            <option>Futbol Soccer</option>
+                            <option>Basketball</option>
+                        </select>
+                        </div>
+                        <label for="fecha">Fecha de reta:</label>
+                        <input input-date
+                        type="text"
+                        name="created"
+                        id="fecha"
+                        ng-model="vm.fecha"
+                        container="body"
+                        format="dd/mm/yyyy" />
+                        <label for="hora">Hora de reta:</label>
+                        <input id="hora" ng-model="vm.hora" input-clock data-twelvehour="false" type="text">
+                        <p>Agregar ubicacion</p>
+                        <button ng-click="vm.addMap()" style="border-radius: 70px;" class="btn" ><i class="material-icons">my_location</i></button>
+                        <input ng-model="vm.tags" placeholder="Tags (#) de la reta..." />
+                        <button ng-click="vm.saveReta()" style="width: 70%" class="btn">Crear Reta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    
+    </div>
+
+
+
+<div id="modal-map" class="modal">
+    <div style="text-align:center;" class="modal-content text-center">
+        <div class="container">
+            <ng-map ng-if="vm.showMap" id="mapModal" center="{{vm.latitude}}, {{vm.longitude}}">
+                <marker visible="true" on-mouseup="vm.markerMove()" draggable="true" position="{{vm.latitude}}, {{vm.longitude}}"></marker>
+            </ng-map>
+            <button ng-click="vm.saveLocation()" class="btn modal-action modal-close">Guardar ubicacion</button>
+        </div>
+    </div>
+</div>
+
+<!--Modal add team-->
+
+<!--<div id="modal-add-team" class="modal">
+    <div style="text-align:center;" class="modal-content text-center">
+        <div class="container">
+            <h5 style="margin-bottom: 30px;">Agregar a equipo</h5>
+            <div input-field>
+            <select style="margin-top: 10%;" value="" ng-model="vm.playername" material-select>
+                <option disabled selected value="">Elige un usuario para agregar al equipo</option>
+                <option value="Usuario 1">Usuario 1</option>
+                <option value="Usuario 2">Usuario 2</option>
+                <option value="Usuario 3">Usuario 3</option>
+                <option value="Usuario 4">Usuario 4</option>
+                <option value="Usuario 5">Usuario 5</option>
+                <option value="Usuario 6">Usuario 6</option>
+                <option value="Usuario 7">Usuario 7</option>
+                <option value="Usuario 8">Usuario 8</option>
+            </select>
+            
+            </div>
+            <button style="margin-top: 20px;" ng-click="vm.addToTeam(vm.playername)" class="btn">Agregar a equipo</button>
+            
+        </div>
+    </div>
+</div>-->

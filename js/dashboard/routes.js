@@ -15,6 +15,14 @@
                 template:'<mapa-cmp></mapa-cmp>'
             })
 
+            .when('/joinreta',{
+                template:'<join-reta></join-reta>'
+            })
+
+            .when('/createreta',{
+                template:'<create-reta></create-reta>'
+            })
+
             .otherwise({
                 redirectTo:'/newsfeed'
             });
